@@ -1,9 +1,11 @@
 import { Link } from "react-router";
 import { useTranslation } from "@/hooks/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   const t = useTranslation();
+  const { language } = useLanguage();
 
   return (
     <footer className="border-t border-[var(--border-subtle)] bg-[var(--bg-secondary)]">
