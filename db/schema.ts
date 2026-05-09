@@ -126,8 +126,9 @@ export const payments = mysqlTable("payments", {
   userName: varchar("userName", { length: 255 }).notNull(),
   email: varchar("email", { length: 320 }),
   amount: varchar("amount", { length: 50 }).notNull(),
-  razorpayOrderId: varchar("razorpayOrderId", { length: 255 }),
-  razorpayPaymentId: varchar("razorpayPaymentId", { length: 255 }),
+  upiTransactionId: varchar("upiTransactionId", { length: 255 }),
+  upiId: varchar("upiId", { length: 255 }).default("Mejustrana@ybl"),
+  service: varchar("service", { length: 255 }),
   status: varchar("status", { length: 50 }).default("pending"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 });
