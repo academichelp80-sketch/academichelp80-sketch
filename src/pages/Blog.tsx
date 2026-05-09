@@ -25,7 +25,7 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-[var(--bg-primary)]">
-      <SEO title={`${t.nav.blog} — ${t.brand}`} description="Expert articles on research paper writing, journal publication, AI tools, and academic methodology." />
+      <SEO title={`${t.nav.blog} — ${t.brand}`} description={t.blog.subtitle} />
       <Navbar />
       <main className="pt-24">
         <section className="py-14 lg:py-20 bg-[var(--bg-secondary)]">
@@ -42,7 +42,7 @@ export default function Blog() {
               <div className="relative max-w-sm w-full">
                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-muted)]" />
                 <input value={query} onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search articles..."
+                  placeholder={t.blog.searchPlaceholder}
                   className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-[var(--border-medium)] bg-[var(--bg-card)] text-[var(--text-primary)] text-[14px] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)] transition-colors" />
               </div>
               <p className="text-[12px] font-mono text-[var(--text-muted)]">{filtered.length} articles</p>

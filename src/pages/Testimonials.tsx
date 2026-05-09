@@ -41,7 +41,7 @@ export default function Testimonials() {
                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--text-muted)]" />
                 <input
                   value={query} onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search by name, university, or keyword..."
+                  placeholder={t.testimonials.searchPlaceholder}
                   className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-[var(--border-medium)] bg-[var(--bg-card)] text-[var(--text-primary)] text-[14px] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--accent)] transition-colors"
                 />
               </div>

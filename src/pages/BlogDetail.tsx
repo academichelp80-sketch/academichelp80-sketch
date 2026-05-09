@@ -17,7 +17,7 @@ export default function BlogDetail() {
     window.scrollTo(0, 0);
   }, [blog]);
 
-  if (!blog) return <div className="min-h-screen bg-[var(--bg-primary)] flex items-center justify-center"><p className="text-[var(--text-muted)]">Article not found</p></div>;
+  if (!blog) return <div className="min-h-screen bg-[var(--bg-primary)] flex items-center justify-center"><p className="text-[var(--text-muted)]">{t.blog.articleNotFound || "Article not found"}</p></div>;
 
   const tags = blog.tags?.split(",") || [];
 
@@ -36,7 +36,7 @@ export default function BlogDetail() {
         <article className="max-w-3xl mx-auto px-6 lg:px-8 -mt-16 relative">
           <div className="card-elevated p-8 md:p-10">
             <Link to="/blog" className="inline-flex items-center gap-1.5 text-[11px] font-mono tracking-wider uppercase text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors mb-6">
-              <ArrowLeft className="w-3.5 h-3.5" />Back
+              <ArrowLeft className="w-3.5 h-3.5" />{t.blog.backToBlog || "Back"}
             </Link>
 
             <div className="flex flex-wrap items-center gap-3 mb-5">
@@ -64,8 +64,8 @@ export default function BlogDetail() {
           {/* CTA */}
           <div className="mt-8 card-elevated p-8 text-center">
             <MessageCircle className="w-8 h-8 text-[var(--accent)] mx-auto mb-3" />
-            <h3 className="font-sans text-[18px] font-semibold text-[var(--text-primary)] mb-2">Need help with this topic?</h3>
-            <p className="text-[13px] text-[var(--text-muted)] mb-5">Our experts are ready to assist you.</p>
+            <h3 className="font-sans text-[18px] font-semibold text-[var(--text-primary)] mb-2">{t.blog.needHelp}</h3>
+            <p className="text-[13px] text-[var(--text-muted)] mb-5">{t.blog.helpText}</p>
             <a href={`https://wa.me/919310604015?text=Hello!%20I%20read%20your%20article%20on%20${encodeURIComponent(blog.titleEn)}%20and%20need%20help.`}
               target="_blank" rel="noopener noreferrer" className="pill-btn pill-btn-primary">
               <MessageCircle className="w-3.5 h-3.5" />Chat on WhatsApp
@@ -75,7 +75,7 @@ export default function BlogDetail() {
 
         {related.length > 0 && (
           <section className="max-w-7xl mx-auto px-6 lg:px-8 mt-16">
-            <h2 className="text-[var(--text-primary)] mb-8">Related Articles</h2>
+            <h2 className="text-[var(--text-primary)] mb-8">{t.blog.relatedArticles}</h2>
             <div className="grid md:grid-cols-3 gap-5">
               {related.map(b => (
                 <Link key={b.id} to={`/blog/${b.slug}`} className="group block">

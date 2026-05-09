@@ -33,9 +33,9 @@ export default function Services() {
       <main className="pt-24">
         <section className="py-14 lg:py-20 bg-[var(--bg-secondary)]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <p className="section-label mb-3">Comprehensive Solutions</p>
-            <h1 className="text-[var(--text-primary)] mb-3">Our Services</h1>
-            <p className="text-[var(--text-secondary)] text-[15px] max-w-lg">End-to-end academic support for every stage of your research journey.</p>
+            <p className="section-label mb-3">{t.servicesPage.comprehensive}</p>
+            <h1 className="text-[var(--text-primary)] mb-3">{t.servicesPage.title}</h1>
+            <p className="text-[var(--text-secondary)] text-[15px] max-w-lg">{t.servicesPage.subtitle}</p>
           </div>
         </section>
 
@@ -63,14 +63,14 @@ export default function Services() {
         <section className="py-16 bg-[var(--bg-secondary)]">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-8">
-              <p className="section-label mb-2">Why AcademicHelp</p>
-              <h2 className="text-[var(--text-primary)]">The AcademicHelp Advantage</h2>
+              <p className="section-label mb-2">{t.about.label}</p>
+              <h2 className="text-[var(--text-primary)]">{t.servicesPage.advantageTitle}</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-4">
               {[
-                { title: "100% Customized", desc: "Every project crafted to match your research objectives and target journal requirements." },
-                { title: "PhD Experts", desc: "Doctorate-qualified researchers with expertise across diverse academic disciplines." },
-                { title: "Fully Confidential", desc: "Complete anonymity throughout the research and publication process." },
+                { title: t.servicesPage.advantage1, desc: t.servicesPage.advantage1Desc },
+                { title: t.servicesPage.advantage2, desc: t.servicesPage.advantage2Desc },
+                { title: t.servicesPage.advantage3, desc: t.servicesPage.advantage3Desc },
               ].map((item) => (
                 <div key={item.title} className="card-dark p-6">
                   <div className="flex items-center gap-2 mb-3">

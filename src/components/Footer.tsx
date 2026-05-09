@@ -20,17 +20,24 @@ export default function Footer() {
               <span className="text-[13px] font-semibold tracking-[0.08em] text-[var(--text-primary)]">{t.brand}</span>
             </Link>
             <p className="text-[13px] text-[var(--text-muted)] leading-relaxed">
-              India's premier research consultancy helping scholars achieve publication success.
+              {t.footer.desc || t.seo.description.substring(0, 120) + "..."}
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <p className="text-[11px] font-mono tracking-[0.15em] uppercase text-[var(--text-muted)] mb-4">Navigation</p>
+            <p className="text-[11px] font-mono tracking-[0.15em] uppercase text-[var(--text-muted)] mb-4">{t.footer.quickLinks}</p>
             <ul className="space-y-2.5">
-              {["Home", "Services", "Testimonials", "Blog", "Inquiry", "Payment"].map((label) => (
-                <li key={label}>
-                  <Link to={label === "Home" ? "/" : `/${label.toLowerCase()}`} className="text-[13px] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors">{label}</Link>
+              {[
+                { label: t.nav.home, to: "/" },
+                { label: t.nav.services, to: "/services" },
+                { label: t.nav.testimonials, to: "/testimonials" },
+                { label: t.nav.blog, to: "/blog" },
+                { label: t.nav.inquiry, to: "/inquiry" },
+                { label: t.nav.payment, to: "/payment" },
+              ].map((item) => (
+                <li key={item.to}>
+                  <Link to={item.to} className="text-[13px] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors">{item.label}</Link>
                 </li>
               ))}
             </ul>
@@ -38,11 +45,18 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <p className="text-[11px] font-mono tracking-[0.15em] uppercase text-[var(--text-muted)] mb-4">Services</p>
+            <p className="text-[11px] font-mono tracking-[0.15em] uppercase text-[var(--text-muted)] mb-4">{t.footer.services}</p>
             <ul className="space-y-2.5">
-              {["Research Paper Writing", "Review Paper Writing", "Thesis Writing", "Methodology Design", "Peer Review", "Plagiarism Removal"].map((s) => (
-                <li key={s}>
-                  <Link to="/services" className="text-[13px] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors">{s}</Link>
+              {[
+                { en: "Research Paper Writing", hi: "\\u0930\\u093F\\u0938\\u0930\\u094D\\u091A \\u092A\\u0947\\u092A\\u0930 \\u0930\\u093E\\u0907\\u091F\\u093F\\u0902\\u0917" },
+                { en: "Review Paper Writing", hi: "\\u0930\\u093F\\u0935\\u094D\\u092F\\u0942 \\u092A\\u0947\\u092A\\u0930 \\u0930\\u093E\\u0907\\u091F\\u093F\\u0902\\u0917" },
+                { en: "Thesis Writing", hi: "\\u0925\\u0940\\u0938\\u093F\\u0938 \\u0930\\u093E\\u0907\\u091F\\u093F\\u0902\\u0915" },
+                { en: "Methodology Design", hi: "\\u092E\\u0947\\u0925\\u0921\\u094B\\u0932\\u094B\\u091C\\u0940 \\u0921\\u093F\\u095B\\u093E\\u0907\\u0928" },
+                { en: "Peer Review", hi: "\\u092A\\u0940\\u092F\\u0930 \\u0930\\u093F\\u0935\\u094D\\u092F\\u0942" },
+                { en: "Plagiarism Removal", hi: "\\u092A\\u094D\\u0932\\u093E\\u091C\\u093C\\u093F\\u092F\\u093E\\u0930\\u093F\\u095B\\u092E \\u0939\\u091F\\u093E\\u0928\\u093E" },
+              ].map((s) => (
+                <li key={s.en}>
+                  <Link to="/services" className="text-[13px] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors">{language === "hi" ? s.hi : s.en}</Link>
                 </li>
               ))}
             </ul>
@@ -50,7 +64,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-[11px] font-mono tracking-[0.15em] uppercase text-[var(--text-muted)] mb-4">Contact</p>
+            <p className="text-[11px] font-mono tracking-[0.15em] uppercase text-[var(--text-muted)] mb-4">{t.footer.contact}</p>
             <ul className="space-y-3">
               <li className="flex items-center gap-2.5 text-[13px] text-[var(--text-muted)]">
                 <Phone className="w-3.5 h-3.5 text-[var(--accent)]" />
@@ -77,8 +91,8 @@ export default function Footer() {
         <div className="mt-10 pt-6 border-t border-[var(--border-subtle)] flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-[11px] text-[var(--text-muted)]">{t.footer.copyright}</p>
           <div className="flex items-center gap-4">
-            <span className="text-[11px] text-[var(--text-muted)]">Privacy</span>
-            <span className="text-[11px] text-[var(--text-muted)]">Terms</span>
+            <span className="text-[11px] text-[var(--text-muted)]">{t.footer.privacy}</span>
+            <span className="text-[11px] text-[var(--text-muted)]">{t.footer.terms}</span>
           </div>
         </div>
       </div>
