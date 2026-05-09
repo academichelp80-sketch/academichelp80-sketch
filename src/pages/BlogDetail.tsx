@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useParams, Link } from "react-router";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations } from "@/i18n/translations";
 import { blogPostsData } from "@/data/blogs";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,6 +10,8 @@ import SEO from "@/components/SEO";
 import { ArrowLeft, Clock, Tag, Calendar, MessageCircle } from "lucide-react";
 
 export default function BlogDetail() {
+  const { language } = useLanguage();
+  const t = translations[language];
   const { slug } = useParams<{ slug: string }>();
   const blog = blogPostsData.find(b => b.slug === slug);
   const related = blogPostsData.filter(b => b.slug !== slug).slice(0, 3);

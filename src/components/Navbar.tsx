@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations, type Language } from "@/i18n/translations";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -139,6 +139,32 @@ export default function Navbar() {
                 >
                   Connect on WhatsApp
                 </a>
+
+                {/* Mobile Language Switcher */}
+                <div className="mt-6 pt-6 border-t border-[var(--border-subtle)]">
+                  <p className="px-4 text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-wider mb-2">
+                    Select Language
+                  </p>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    {languages.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => { setLanguage(lang.code as Language); setMobileOpen(false); }}
+                        className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-[12px] font-medium transition-all text-left ${
+                          language === lang.code
+                            ? "text-[var(--accent)] bg-[var(--accent-soft)] border border-[var(--accent-dim)]"
+                            : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--accent-soft)]"
+                        }`}
+                      >
+                        <Globe className="w-3.5 h-3.5 shrink-0" />
+                        <span>{lang.nativeName}</span>
+                        {language === lang.code && (
+                          <span className="ml-auto text-[10px] text-[var(--accent)]">&#10003;</span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
