@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* White theme scientific palette */
+    --bg-primary: #FEFEFE;
+    --bg-secondary: #F3F4F8;
+    --bg-card: #FFFFFF;
+    --bg-elevated: #E7E9F0;
+    --border-subtle: rgba(5, 23, 71, 0.08);
+    --border-medium: rgba(5, 23, 71, 0.15);
+
+    /* Accent - deep navy */
+    --accent: #081F62;
+    --accent-soft: rgba(8, 31, 98, 0.06);
+    --accent-dim: rgba(8, 31, 98, 0.04);
+
+    /* Text */
+    --text-primary: #051747;
+    --text-secondary: #535F80;
+    --text-muted: #7A85A3;
+
+    /* shadcn vars */
+    --background: 0 0% 99.6%;
+    --foreground: 224 87% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 87% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 87% 15%;
+    --primary: 224 85% 21%;
+    --primary-foreground: 0 0% 99.6%;
+    --secondary: 228 20% 93%;
+    --secondary-foreground: 224 87% 15%;
+    --muted: 228 20% 93%;
+    --muted-foreground: 225 18% 42%;
+    --accent-hsl: 224 85% 21%;
+    --accent-foreground: 0 0% 99.6%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 99.6%;
+    --border: 228 20% 93%;
+    --input: 228 20% 93%;
+    --ring: 224 85% 21%;
+    --radius: 0.75rem;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+
+  h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+  h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+  h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  * {
+    @apply border-[var(--border-subtle)];
+  }
+
+  ::selection {
+    background-color: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(5, 23, 71, 0.12);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(5, 23, 71, 0.2);
+  }
+}
+
+@layer components {
+  .pill-btn {
+    @apply inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[13px] font-medium tracking-wide transition-all duration-200;
+  }
+  .pill-btn-primary {
+    @apply bg-[var(--accent)] text-white hover:bg-[#051747];
+  }
+  .pill-btn-outline {
+    @apply border border-[var(--border-medium)] text-[var(--text-secondary)] hover:border-[var(--accent)] hover:text-[var(--accent)];
+  }
+
+  .card-dark {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px rgba(5, 23, 71, 0.04);
+  }
+
+  .card-elevated {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(5, 23, 71, 0.06);
+  }
+
+  .section-label {
+    @apply text-[11px] font-mono font-medium tracking-[0.15em] uppercase text-[var(--accent)];
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
